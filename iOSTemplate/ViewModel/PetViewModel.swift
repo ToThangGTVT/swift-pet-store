@@ -9,22 +9,36 @@ import Foundation
 import RxSwift
 
 protocol PetViewModelInterface: class {
-    func getData() -> Observable<[Pet]>
+    func getData()
+    var posts: Observable<[PostEntity]> { get }
+    var loadingErrorOccurred: Observable<Error> { get }
 }
 
 class PetViewModel: PetViewModelInterface {
+    private let _posts = PublishSubject<[PostEntity]>()
+    private let _loadingErrorOccurred = PublishSubject<Error>()
+    private let disposeBag = DisposeBag()
+    
+    let posts: Observable<[PostEntity]>
+    let loadingErrorOccurred: Observable<Error>
     
     var networkService: BaseCallApiInterface?
+
+    init() {
+        self.posts = _posts.asObserver()
+        self.loadingErrorOccurred = _loadingErrorOccurred.asObserver()
+    }
         
-    func getData() -> Observable<[Pet]> {
-        let observerApi = networkService?.getData(url: "https://petstore.swagger.io/v2/pet/findByStatus?status=available", type: [Pet].self)
-        guard let observerApi = observerApi else { return Observable.error(Error.self as! Error)}
-        return observerApi.flatMap { obVal -> Observable<[Pet]> in
-            if let obVal = obVal {
-                return Observable.just(obVal)
-            } else {
-                return Observable.error(Error.self as! Error)
-            }
+    func getData() {
+        
+        let observerApi = networkService?.callApi(url: "https://setdanh.io.vn/api/post", method: .get, parameters: nil, type: [PostEntity].self)
+        
+        guard let observerApi = observerApi else { return }
+        observerApi.catchError { error in
+            // Xử lý lỗi và trả về một Observable hoặc giá trị mặc định
+            print("Error occurred: \(error)")
+            return Observable.just("Fallback data")
         }
+
     }
 }

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class MainViewController: UIViewController {
-    var viewMode: PetViewModelInterface? = PetViewModel()
+    var viewModel: PetViewModelInterface?
     var disposeBag = DisposeBag()
     
     @IBOutlet var tableView: UITableView!
@@ -20,9 +20,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "PetTableCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        viewModel?.getData()
         
-        viewMode?.getData().bind(to: tableView.rx.items(cellIdentifier: "Cell", cellType: PetTableCell.self)) { index, element, cell in
-            cell.title.text = element.name
+        viewModel?.posts.bind(to:
+                                tableView.rx.items(cellIdentifier: "Cell", cellType: PetTableCell.self)) { index, element, cell in
+            cell.title.text = element.category?.name
         }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in

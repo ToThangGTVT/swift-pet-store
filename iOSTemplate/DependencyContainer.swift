@@ -23,7 +23,10 @@ extension SwinjectStoryboard {
     class ViewControllerAssembly : Assembly {
         func assemble(container: Swinject.Container) {
             container.storyboardInitCompleted(MainViewController.self) { resolve, vc in
-                vc.viewMode = resolve.resolve(PetViewModelInterface.self)
+                vc.viewModel = resolve.resolve(PetViewModelInterface.self)
+            }
+            container.storyboardInitCompleted(LoginViewController.self) { resolve, vc in
+                vc.viewModel = resolve.resolve(LoginViewModelInterface.self)
             }
         }
     }
@@ -32,6 +35,11 @@ extension SwinjectStoryboard {
         func assemble(container: Swinject.Container) {
             container.register(PetViewModelInterface.self) { resolver in
                 let viewModel = PetViewModel()
+                viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
+                return viewModel
+            }.inObjectScope(.container)
+            container.register(LoginViewModelInterface.self) { resolver in
+                let viewModel = LoginViewModel()
                 viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
                 return viewModel
             }.inObjectScope(.container)

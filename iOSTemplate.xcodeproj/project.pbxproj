@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3737760A2A85DA95000F4551 /* BaseCallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373776092A85DA95000F4551 /* BaseCallApi.swift */; };
-		3737760D2A85E776000F4551 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3737760C2A85E776000F4551 /* Pet.swift */; };
 		373776102A85E7F1000F4551 /* PetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3737760F2A85E7F1000F4551 /* PetViewModel.swift */; };
 		373776122A85EA6B000F4551 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373776112A85EA6B000F4551 /* DependencyContainer.swift */; };
 		373776142A861830000F4551 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373776132A861830000F4551 /* MainViewController.swift */; };
@@ -18,12 +17,19 @@
 		373D96492A864081009C1F53 /* DetailPetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373D96472A864081009C1F53 /* DetailPetViewController.xib */; };
 		373D964D2A8644F4009C1F53 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D964B2A8644F4009C1F53 /* AddPetViewController.swift */; };
 		373D964E2A8644F4009C1F53 /* AddPetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373D964C2A8644F4009C1F53 /* AddPetViewController.xib */; };
+		373D96532A89C263009C1F53 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D96512A89C263009C1F53 /* LoginViewController.swift */; };
+		373D96542A89C263009C1F53 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373D96522A89C263009C1F53 /* LoginViewController.xib */; };
+		373D96562A89C3FF009C1F53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D96552A89C3FF009C1F53 /* LoginViewModel.swift */; };
+		373D96582A89C83E009C1F53 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D96572A89C83E009C1F53 /* LoginEntity.swift */; };
 		3775361422234238005EE5FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775361322234238005EE5FE /* AppDelegate.swift */; };
 		3775361922234238005EE5FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3775361722234238005EE5FE /* Main.storyboard */; };
 		3775361B22234238005EE5FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3775361A22234238005EE5FE /* Assets.xcassets */; };
 		3775361E22234238005EE5FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3775361C22234238005EE5FE /* LaunchScreen.storyboard */; };
 		3775362922234238005EE5FE /* iOSTemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775362822234238005EE5FE /* iOSTemplateTests.swift */; };
 		3775363422234239005EE5FE /* iOSTemplateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775363322234239005EE5FE /* iOSTemplateUITests.swift */; };
+		378ADA122A8A1D95003D4E8C /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378ADA112A8A1D95003D4E8C /* AppConstant.swift */; };
+		378ADA142A8A212D003D4E8C /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378ADA132A8A212D003D4E8C /* PostEntity.swift */; };
+		378ADA162A8A2481003D4E8C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378ADA152A8A2481003D4E8C /* AppError.swift */; };
 		6B14BACEDBAA9FDA1AE1102A /* Pods_iOSTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87165C2602D40E31B3875E2F /* Pods_iOSTemplate.framework */; };
 		AA1EDD39C6D8EC4AE808B49F /* Pods_iOSTemplate_iOSTemplateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E9BBCAA42E9698E56EF415 /* Pods_iOSTemplate_iOSTemplateUITests.framework */; };
 		BCD22AB50259DBBAF28D3425 /* Pods_iOSTemplateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE064B1BF79334C2DF83E2FE /* Pods_iOSTemplateTests.framework */; };
@@ -48,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		373776092A85DA95000F4551 /* BaseCallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCallApi.swift; sourceTree = "<group>"; };
-		3737760C2A85E776000F4551 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		3737760F2A85E7F1000F4551 /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
 		373776112A85EA6B000F4551 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		373776132A861830000F4551 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +63,10 @@
 		373D96472A864081009C1F53 /* DetailPetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPetViewController.xib; sourceTree = "<group>"; };
 		373D964B2A8644F4009C1F53 /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		373D964C2A8644F4009C1F53 /* AddPetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPetViewController.xib; sourceTree = "<group>"; };
+		373D96512A89C263009C1F53 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		373D96522A89C263009C1F53 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		373D96552A89C3FF009C1F53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		373D96572A89C83E009C1F53 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		3775361022234238005EE5FE /* iOSTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3775361322234238005EE5FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3775361822234238005EE5FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +79,9 @@
 		3775362F22234239005EE5FE /* iOSTemplateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSTemplateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3775363322234239005EE5FE /* iOSTemplateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSTemplateUITests.swift; sourceTree = "<group>"; };
 		3775363522234239005EE5FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378ADA112A8A1D95003D4E8C /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		378ADA132A8A212D003D4E8C /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
+		378ADA152A8A2481003D4E8C /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		3BB9BA8AA6FD2CF287D885D6 /* Pods-iOSTemplateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplateTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSTemplateTests/Pods-iOSTemplateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B5B7AEF7C35EAC8E4D0AAD4 /* Pods-iOSTemplate-iOSTemplateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplate-iOSTemplateUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplate-iOSTemplateUITests/Pods-iOSTemplate-iOSTemplateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5BBBBFA2E962A6A2052A5799 /* Pods-iOSTemplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplateTests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplateTests/Pods-iOSTemplateTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +142,8 @@
 		3737760B2A85E716000F4551 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				3737760C2A85E776000F4551 /* Pet.swift */,
+				373D96572A89C83E009C1F53 /* LoginEntity.swift */,
+				378ADA132A8A212D003D4E8C /* PostEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -139,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				3737760F2A85E7F1000F4551 /* PetViewModel.swift */,
+				373D96552A89C3FF009C1F53 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,6 +169,8 @@
 		373D96452A864054009C1F53 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				373776132A861830000F4551 /* MainViewController.swift */,
+				373D96502A89C248009C1F53 /* LoginViewController */,
 				373D964F2A8644FC009C1F53 /* AddPetViewcontroller */,
 				373D964A2A8644AF009C1F53 /* DetailPetController */,
 				373D963C2A863373009C1F53 /* View */,
@@ -178,6 +194,15 @@
 				373D964C2A8644F4009C1F53 /* AddPetViewController.xib */,
 			);
 			path = AddPetViewcontroller;
+			sourceTree = "<group>";
+		};
+		373D96502A89C248009C1F53 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				373D96512A89C263009C1F53 /* LoginViewController.swift */,
+				373D96522A89C263009C1F53 /* LoginViewController.xib */,
+			);
+			path = LoginViewController;
 			sourceTree = "<group>";
 		};
 		3775360722234238005EE5FE = {
@@ -205,12 +230,12 @@
 		3775361222234238005EE5FE /* iOSTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				378ADA102A8A1D7C003D4E8C /* Constant */,
 				373D96452A864054009C1F53 /* ViewController */,
 				3737760E2A85E7C8000F4551 /* ViewModel */,
 				3737760B2A85E716000F4551 /* Entity */,
 				373776082A85D9E2000F4551 /* Sevices */,
 				3775361322234238005EE5FE /* AppDelegate.swift */,
-				373776132A861830000F4551 /* MainViewController.swift */,
 				3775361722234238005EE5FE /* Main.storyboard */,
 				3775361C22234238005EE5FE /* LaunchScreen.storyboard */,
 				373776112A85EA6B000F4551 /* DependencyContainer.swift */,
@@ -236,6 +261,15 @@
 				3775363522234239005EE5FE /* Info.plist */,
 			);
 			path = iOSTemplateUITests;
+			sourceTree = "<group>";
+		};
+		378ADA102A8A1D7C003D4E8C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				378ADA112A8A1D95003D4E8C /* AppConstant.swift */,
+				378ADA152A8A2481003D4E8C /* AppError.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		6858D40D0FFC4645377ECF43 /* Pods */ = {
@@ -364,6 +398,7 @@
 				3775361B22234238005EE5FE /* Assets.xcassets in Resources */,
 				373D96442A8633B4009C1F53 /* PetTableCell.xib in Resources */,
 				373D964E2A8644F4009C1F53 /* AddPetViewController.xib in Resources */,
+				373D96542A89C263009C1F53 /* LoginViewController.xib in Resources */,
 				3775361922234238005EE5FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,14 +528,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				373D96432A8633B4009C1F53 /* PetTableCell.swift in Sources */,
-				3737760D2A85E776000F4551 /* Pet.swift in Sources */,
+				373D96582A89C83E009C1F53 /* LoginEntity.swift in Sources */,
 				373776122A85EA6B000F4551 /* DependencyContainer.swift in Sources */,
+				378ADA122A8A1D95003D4E8C /* AppConstant.swift in Sources */,
 				373D96482A864081009C1F53 /* DetailPetViewController.swift in Sources */,
 				3775361422234238005EE5FE /* AppDelegate.swift in Sources */,
+				378ADA162A8A2481003D4E8C /* AppError.swift in Sources */,
 				373776142A861830000F4551 /* MainViewController.swift in Sources */,
 				373D964D2A8644F4009C1F53 /* AddPetViewController.swift in Sources */,
 				373776102A85E7F1000F4551 /* PetViewModel.swift in Sources */,
+				378ADA142A8A212D003D4E8C /* PostEntity.swift in Sources */,
+				373D96532A89C263009C1F53 /* LoginViewController.swift in Sources */,
 				3737760A2A85DA95000F4551 /* BaseCallApi.swift in Sources */,
+				373D96562A89C3FF009C1F53 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
