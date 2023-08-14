@@ -13,5 +13,12 @@ struct AppConstant {
         public static let AUTH_TOKEN: String = "AUTH_TOKEN"
         public static let REFRESH_TOKEN: String = "REFRESH_TOKEN"
     }
+    
+    struct Api {
+        public static let BASE_URL = "https://setdanh.io.vn/api"
+        public static let LOGIN = "/login"
+        public static let GET_POST = "/post"
+        public static let REFRESH_TOKEN = "/refresh-token"
+    }
 }
 

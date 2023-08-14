@@ -10,5 +10,8 @@ import Foundation
 enum AppError: Swift.Error {
     case customError
     case networkError
+    case haveNoDataError
+    case unAuthorized
+    case nilDependency
     // Các case lỗi khác
 }

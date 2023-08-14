@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddPetViewController: UIViewController {
+class AddPetViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

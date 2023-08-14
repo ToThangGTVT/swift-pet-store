@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3737760A2A85DA95000F4551 /* BaseCallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373776092A85DA95000F4551 /* BaseCallApi.swift */; };
-		373776102A85E7F1000F4551 /* PetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3737760F2A85E7F1000F4551 /* PetViewModel.swift */; };
+		373776102A85E7F1000F4551 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3737760F2A85E7F1000F4551 /* MainViewModel.swift */; };
 		373776122A85EA6B000F4551 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373776112A85EA6B000F4551 /* DependencyContainer.swift */; };
 		373776142A861830000F4551 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373776132A861830000F4551 /* MainViewController.swift */; };
 		373D96432A8633B4009C1F53 /* PetTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373D96412A8633B4009C1F53 /* PetTableCell.swift */; };
@@ -32,6 +32,8 @@
 		378ADA162A8A2481003D4E8C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378ADA152A8A2481003D4E8C /* AppError.swift */; };
 		6B14BACEDBAA9FDA1AE1102A /* Pods_iOSTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87165C2602D40E31B3875E2F /* Pods_iOSTemplate.framework */; };
 		AA1EDD39C6D8EC4AE808B49F /* Pods_iOSTemplate_iOSTemplateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E9BBCAA42E9698E56EF415 /* Pods_iOSTemplate_iOSTemplateUITests.framework */; };
+		B0D87BD62A8A796500292F07 /* BaseViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D87BD52A8A796500292F07 /* BaseViewModal.swift */; };
+		B0D87BD92A8A955C00292F07 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D87BD82A8A955C00292F07 /* BaseViewController.swift */; };
 		BCD22AB50259DBBAF28D3425 /* Pods_iOSTemplateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE064B1BF79334C2DF83E2FE /* Pods_iOSTemplateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		373776092A85DA95000F4551 /* BaseCallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCallApi.swift; sourceTree = "<group>"; };
-		3737760F2A85E7F1000F4551 /* PetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetViewModel.swift; sourceTree = "<group>"; };
+		3737760F2A85E7F1000F4551 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		373776112A85EA6B000F4551 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		373776132A861830000F4551 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		373D96412A8633B4009C1F53 /* PetTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableCell.swift; sourceTree = "<group>"; };
@@ -87,6 +89,8 @@
 		5BBBBFA2E962A6A2052A5799 /* Pods-iOSTemplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplateTests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplateTests/Pods-iOSTemplateTests.release.xcconfig"; sourceTree = "<group>"; };
 		67E9BBCAA42E9698E56EF415 /* Pods_iOSTemplate_iOSTemplateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSTemplate_iOSTemplateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87165C2602D40E31B3875E2F /* Pods_iOSTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D87BD52A8A796500292F07 /* BaseViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModal.swift; sourceTree = "<group>"; };
+		B0D87BD82A8A955C00292F07 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D7EE53F22720E99B577B5FD2 /* Pods-iOSTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplate.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplate/Pods-iOSTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		D8A701869D2A95FC8E6AB1E7 /* Pods-iOSTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplate.debug.xcconfig"; path = "Target Support Files/Pods-iOSTemplate/Pods-iOSTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		E76CF926D693F603B04AA645 /* Pods-iOSTemplate-iOSTemplateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplate-iOSTemplateUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSTemplate-iOSTemplateUITests/Pods-iOSTemplate-iOSTemplateUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,8 +155,9 @@
 		3737760E2A85E7C8000F4551 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3737760F2A85E7F1000F4551 /* PetViewModel.swift */,
+				3737760F2A85E7F1000F4551 /* MainViewModel.swift */,
 				373D96552A89C3FF009C1F53 /* LoginViewModel.swift */,
+				B0D87BD52A8A796500292F07 /* BaseViewModal.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,7 +174,8 @@
 		373D96452A864054009C1F53 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				373776132A861830000F4551 /* MainViewController.swift */,
+				B0D87BD72A8A954600292F07 /* Base */,
+				B0D87BD42A8A703800292F07 /* MainViewController */,
 				373D96502A89C248009C1F53 /* LoginViewController */,
 				373D964F2A8644FC009C1F53 /* AddPetViewcontroller */,
 				373D964A2A8644AF009C1F53 /* DetailPetController */,
@@ -236,7 +242,6 @@
 				3737760B2A85E716000F4551 /* Entity */,
 				373776082A85D9E2000F4551 /* Sevices */,
 				3775361322234238005EE5FE /* AppDelegate.swift */,
-				3775361722234238005EE5FE /* Main.storyboard */,
 				3775361C22234238005EE5FE /* LaunchScreen.storyboard */,
 				373776112A85EA6B000F4551 /* DependencyContainer.swift */,
 				3775361A22234238005EE5FE /* Assets.xcassets */,
@@ -283,6 +288,23 @@
 				5BBBBFA2E962A6A2052A5799 /* Pods-iOSTemplateTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B0D87BD42A8A703800292F07 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3775361722234238005EE5FE /* Main.storyboard */,
+				373776132A861830000F4551 /* MainViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		B0D87BD72A8A954600292F07 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B0D87BD82A8A955C00292F07 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,12 +555,14 @@
 				378ADA122A8A1D95003D4E8C /* AppConstant.swift in Sources */,
 				373D96482A864081009C1F53 /* DetailPetViewController.swift in Sources */,
 				3775361422234238005EE5FE /* AppDelegate.swift in Sources */,
+				B0D87BD62A8A796500292F07 /* BaseViewModal.swift in Sources */,
 				378ADA162A8A2481003D4E8C /* AppError.swift in Sources */,
 				373776142A861830000F4551 /* MainViewController.swift in Sources */,
 				373D964D2A8644F4009C1F53 /* AddPetViewController.swift in Sources */,
-				373776102A85E7F1000F4551 /* PetViewModel.swift in Sources */,
+				373776102A85E7F1000F4551 /* MainViewModel.swift in Sources */,
 				378ADA142A8A212D003D4E8C /* PostEntity.swift in Sources */,
 				373D96532A89C263009C1F53 /* LoginViewController.swift in Sources */,
+				B0D87BD92A8A955C00292F07 /* BaseViewController.swift in Sources */,
 				3737760A2A85DA95000F4551 /* BaseCallApi.swift in Sources */,
 				373D96562A89C3FF009C1F53 /* LoginViewModel.swift in Sources */,
 			);

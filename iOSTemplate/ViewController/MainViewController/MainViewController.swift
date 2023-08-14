@@ -10,8 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MainViewController: UIViewController {
-    var viewModel: PetViewModelInterface?
+class MainViewController: BaseViewController {
+    var viewModel: MainViewModelInterface?
     var disposeBag = DisposeBag()
     
     @IBOutlet var tableView: UITableView!
@@ -22,10 +22,13 @@ class MainViewController: UIViewController {
         tableView.register(UINib(nibName: "PetTableCell", bundle: nil), forCellReuseIdentifier: "Cell")
         viewModel?.getData()
         
-        viewModel?.posts.bind(to:
-                                tableView.rx.items(cellIdentifier: "Cell", cellType: PetTableCell.self)) { index, element, cell in
+        viewModel?.posts.bind(to: tableView.rx.items(cellIdentifier: "Cell", cellType: PetTableCell.self)) { index, element, cell in
             cell.title.text = element.category?.name
         }.disposed(by: disposeBag)
+        
+        viewModel?.loadingErrorOccurred.subscribe(onNext: ({ [weak self] error in
+            self?.showAlert(message: error.localizedDescription)
+        })).disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             let cell = self?.tableView.cellForRow(at: indexPath) as? PetTableCell
@@ -36,6 +39,5 @@ class MainViewController: UIViewController {
         }).disposed(by: disposeBag)
         
     }
-    
 }
 
