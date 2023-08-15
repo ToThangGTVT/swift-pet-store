@@ -19,6 +19,7 @@ struct AppConstant {
         public static let LOGIN = "/login"
         public static let GET_POST = "/post"
         public static let REFRESH_TOKEN = "/refresh-token"
+        public static let GET_CATEGORY = "/category"
     }
 }
 

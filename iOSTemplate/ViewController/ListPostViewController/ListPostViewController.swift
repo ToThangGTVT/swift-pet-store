@@ -10,7 +10,7 @@ import SwinjectStoryboard
 
 class ListPostViewController: BaseViewController {
     
-    var viewModel: MainViewModelInterface?
+    var viewModel: ListPostViewModelInterface?
 
     @IBOutlet weak var tableView: UITableView!
     

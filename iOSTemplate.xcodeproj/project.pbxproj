@@ -39,6 +39,8 @@
 		B01E686B2A8B94FD007D48DE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E686A2A8B94FD007D48DE /* UIView+Extension.swift */; };
 		B01E686D2A8B9C58007D48DE /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E686C2A8B9C58007D48DE /* UIApplication+Extension.swift */; };
 		B01E686F2A8BA67F007D48DE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E686E2A8BA67F007D48DE /* UIViewController+Extension.swift */; };
+		B01E68712A8BC11D007D48DE /* ListPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E68702A8BC11D007D48DE /* ListPostViewModel.swift */; };
+		B01E68732A8BC1F3007D48DE /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E68722A8BC1F3007D48DE /* CategoryEntity.swift */; };
 		B0D87BD62A8A796500292F07 /* BaseViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D87BD52A8A796500292F07 /* BaseViewModal.swift */; };
 		B0D87BD92A8A955C00292F07 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D87BD82A8A955C00292F07 /* BaseViewController.swift */; };
 		BCD22AB50259DBBAF28D3425 /* Pods_iOSTemplateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE064B1BF79334C2DF83E2FE /* Pods_iOSTemplateTests.framework */; };
@@ -103,6 +105,8 @@
 		B01E686A2A8B94FD007D48DE /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B01E686C2A8B9C58007D48DE /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		B01E686E2A8BA67F007D48DE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B01E68702A8BC11D007D48DE /* ListPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostViewModel.swift; sourceTree = "<group>"; };
+		B01E68722A8BC1F3007D48DE /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
 		B0D87BD52A8A796500292F07 /* BaseViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModal.swift; sourceTree = "<group>"; };
 		B0D87BD82A8A955C00292F07 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D7EE53F22720E99B577B5FD2 /* Pods-iOSTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplate.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplate/Pods-iOSTemplate.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 			children = (
 				373D96572A89C83E009C1F53 /* LoginEntity.swift */,
 				378ADA132A8A212D003D4E8C /* PostEntity.swift */,
+				B01E68722A8BC1F3007D48DE /* CategoryEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 		3737760E2A85E7C8000F4551 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B01E68702A8BC11D007D48DE /* ListPostViewModel.swift */,
 				3737760F2A85E7F1000F4551 /* MainViewModel.swift */,
 				373D96552A89C3FF009C1F53 /* LoginViewModel.swift */,
 				B0D87BD52A8A796500292F07 /* BaseViewModal.swift */,
@@ -598,6 +604,7 @@
 			files = (
 				373D96432A8633B4009C1F53 /* PetTableCell.swift in Sources */,
 				373D96582A89C83E009C1F53 /* LoginEntity.swift in Sources */,
+				B01E68732A8BC1F3007D48DE /* CategoryEntity.swift in Sources */,
 				373776122A85EA6B000F4551 /* DependencyContainer.swift in Sources */,
 				378ADA122A8A1D95003D4E8C /* AppConstant.swift in Sources */,
 				373D96482A864081009C1F53 /* DetailPetViewController.swift in Sources */,
@@ -612,6 +619,7 @@
 				373776102A85E7F1000F4551 /* MainViewModel.swift in Sources */,
 				378ADA142A8A212D003D4E8C /* PostEntity.swift in Sources */,
 				373D96532A89C263009C1F53 /* LoginViewController.swift in Sources */,
+				B01E68712A8BC11D007D48DE /* ListPostViewModel.swift in Sources */,
 				B0D87BD92A8A955C00292F07 /* BaseViewController.swift in Sources */,
 				3737760A2A85DA95000F4551 /* BaseCallApi.swift in Sources */,
 				B01E686F2A8BA67F007D48DE /* UIViewController+Extension.swift in Sources */,

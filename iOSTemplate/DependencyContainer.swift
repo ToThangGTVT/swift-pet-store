@@ -22,19 +22,25 @@ extension SwinjectStoryboard {
     
     class ViewControllerAssembly : Assembly {
         func assemble(container: Swinject.Container) {
+            
             container.register(LoginViewController.self) { resolver in
                 let vc = LoginViewController()
                 vc.viewModel = resolver.resolve(LoginViewModelInterface.self)
                 return vc
             }
+                        
             container.register(ListPostViewController.self) { resolver in
                 let vc = ListPostViewController()
-                vc.viewModel = resolver.resolve(MainViewModelInterface.self)
+                vc.viewModel = resolver.resolve(ListPostViewModelInterface.self)
                 return vc
             }
             
             container.storyboardInitCompleted(BaseViewController.self) { resolve, vc in
                 vc.baseViewModel = resolve.resolve(BaseViewModelInterface.self)
+            }
+            
+            container.storyboardInitCompleted(MainViewController.self) { resolve, vc in
+                vc.viewModel = resolve.resolve(MainViewModelInterface.self)
             }
 
             container.storyboardInitCompleted(LoginViewController.self) { resolve, vc in
@@ -56,6 +62,13 @@ extension SwinjectStoryboard {
                 viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
                 return viewModel
             }.inObjectScope(.container)
+            
+            container.register(ListPostViewModelInterface.self) { resolver in
+                let viewModel = ListPostViewModel()
+                viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
+                return viewModel
+            }.inObjectScope(.container)
+            
             container.register(LoginViewModelInterface.self) { resolver in
                 let viewModel = LoginViewModel()
                 viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)

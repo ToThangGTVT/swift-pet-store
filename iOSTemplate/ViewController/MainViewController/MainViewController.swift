@@ -14,12 +14,14 @@ import Parchment
 
 class MainViewController: BaseViewController {
     
+    var viewModel: MainViewModelInterface?
+    let pageViewController = PagingViewController()
+    var listCategories: [CategoryEntity]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let pageViewController = PagingViewController()
+        showIndicator()
         pageViewController.dataSource = self
-        pageViewController.delegate = self
 
         view.backgroundColor = .white
         addChild(pageViewController)
@@ -27,11 +29,21 @@ class MainViewController: BaseViewController {
         view.constrainToEdges(pageViewController.view, paddingTop: topbarHeight)
         pageViewController.didMove(toParent: self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.getDataCategory()
+        viewModel?.categories.subscribe { [weak self] category in
+            self?.listCategories = category.element
+            self?.pageViewController.reloadData()
+            self?.hideIndicator()
+        }.disposed(by: disposeBag)
+    }
 }
 
 extension MainViewController: PagingViewControllerDataSource {
     func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
-        return 10
+        return self.listCategories?.count ?? 0
     }
 
     func pagingViewController(_ pagingViewController: PagingViewController, viewControllerAt index: Int) -> UIViewController {
@@ -42,25 +54,7 @@ extension MainViewController: PagingViewControllerDataSource {
     }
 
     func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
-        return PagingIndexItem(index: index, title: "View \(index)")
-    }
-}
-
-extension MainViewController: PagingViewControllerDelegate {
-    func pagingViewController(_: Parchment.PagingViewController, isScrollingFromItem currentPagingItem: Parchment.PagingItem, toItem upcomingPagingItem: Parchment.PagingItem?, startingViewController: UIViewController, destinationViewController: UIViewController?, progress: CGFloat) {
-        
-    }
-    
-    func pagingViewController(_: Parchment.PagingViewController, willScrollToItem pagingItem: Parchment.PagingItem, startingViewController: UIViewController, destinationViewController: UIViewController) {
-        
-    }
-    
-    func pagingViewController(_ pagingViewController: Parchment.PagingViewController, didScrollToItem pagingItem: Parchment.PagingItem, startingViewController: UIViewController?, destinationViewController: UIViewController, transitionSuccessful: Bool) {
-        
-    }
-    
-    func pagingViewController(_ pagingViewController: Parchment.PagingViewController, didSelectItem pagingItem: Parchment.PagingItem) {
-        
+        return PagingIndexItem(index: index, title: self.listCategories?[index].name ?? "")
     }
 }
 

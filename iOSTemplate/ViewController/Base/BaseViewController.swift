@@ -13,12 +13,19 @@ class BaseViewController: UIViewController {
     
     var baseViewModel: BaseViewModelInterface?
     var disposeBag = DisposeBag()
+    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        baseViewModel?.loadingError401Occurred.subscribe { event in
-            print("xxxxxxxxxxxxxxxxx")
-        }.disposed(by: disposeBag)
+        if #available(iOS 13.0, *) {
+            activityIndicator = UIActivityIndicatorView(style: .large)
+        } else {
+            activityIndicator = UIActivityIndicatorView(style: .gray)
+        }
+
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
     }
     
     func showAlert(message: String) {
@@ -26,5 +33,13 @@ class BaseViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func showIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    func hideIndicator() {
+        activityIndicator.stopAnimating()
     }
 }

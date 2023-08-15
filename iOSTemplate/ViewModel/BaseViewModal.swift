@@ -17,6 +17,7 @@ protocol BaseViewModelInterface: class {
 class BaseViewModel: BaseViewModelInterface {
     var networkService: BaseCallApiInterface?
     var disposeBag = DisposeBag()
+    var isCallRefreshToken: Bool = false
     
     private let _loadingError401Occurred = PublishSubject<Error>()
     let loadingError401Occurred: Observable<Error>

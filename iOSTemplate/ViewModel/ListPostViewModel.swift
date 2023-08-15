@@ -1,34 +1,34 @@
 //
-//  PetViewModel.swift
+//  ListPostView.swift
 //  iOSTemplate
 //
-//  Created by ThangTQ on 11/08/2023.
+//  Created by Thắng Tô on 15/08/2023.
 //
 
 import Foundation
 import RxSwift
 
-protocol MainViewModelInterface: class {
-    func getDataCategory()
-    var categories: Observable<[CategoryEntity]> { get }
+protocol ListPostViewModelInterface: class {
+    func getData()
+    var posts: Observable<[PostEntity]> { get }
     var loadingErrorOccurred: Observable<Error> { get }
 }
 
-class MainViewModel: BaseViewModel, MainViewModelInterface {
-    private let _posts = PublishSubject<[CategoryEntity]>()
+class ListPostViewModel: BaseViewModel, ListPostViewModelInterface {
+    private let _posts = PublishSubject<[PostEntity]>()
     private let _loadingErrorOccurred = PublishSubject<Error>()
     
-    let categories: Observable<[CategoryEntity]>
+    let posts: Observable<[PostEntity]>
     let loadingErrorOccurred: Observable<Error>
     
     override init() {
-        self.categories = _posts.asObserver()
+        self.posts = _posts.asObserver()
         self.loadingErrorOccurred = _loadingErrorOccurred.asObserver()
     }
         
-    func getDataCategory() {
+    func getData() {
                 
-        let observerApi = callApi(urlPostfix: AppConstant.Api.GET_CATEGORY, method: .get, parameters: nil, type: [CategoryEntity].self)
+        let observerApi = callApi(urlPostfix: AppConstant.Api.GET_POST, method: .get, parameters: nil, type: [PostEntity].self)
             .share()
             .asObservable()
             .materialize()
