@@ -12,16 +12,20 @@ import RxCocoa
 import SwinjectStoryboard
 import Parchment
 
-class MainViewController: PagingViewController {
+class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.register(PagingIndexItem, for: PagingIndexItem.s)
-        
-        self.dataSource = self
-        self.delegate = self
-        self.select(index: 0)
+        let pageViewController = PagingViewController()
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+
+        view.backgroundColor = .white
+        addChild(pageViewController)
+        view.addSubview(pageViewController.view)
+        view.constrainToEdges(pageViewController.view, paddingTop: topbarHeight)
+        pageViewController.didMove(toParent: self)
     }
 }
 
@@ -31,7 +35,10 @@ extension MainViewController: PagingViewControllerDataSource {
     }
 
     func pagingViewController(_ pagingViewController: PagingViewController, viewControllerAt index: Int) -> UIViewController {
-        return ListPostViewController()
+        if index > ListViewPaging.allCases.count - 1 {
+            return UIViewController()
+        }
+        return ListViewPaging.allCases[index].getVC()
     }
 
     func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
@@ -55,5 +62,18 @@ extension MainViewController: PagingViewControllerDelegate {
     func pagingViewController(_ pagingViewController: Parchment.PagingViewController, didSelectItem pagingItem: Parchment.PagingItem) {
         
     }
+}
 
+enum ListViewPaging: CaseIterable {
+    case home
+    case category
+    
+    func getVC() -> UIViewController {
+        switch(self) {
+        case .home:
+            return SwinjectStoryboard.defaultContainer.resolve(ListPostViewController.self) ?? UIViewController()
+        case .category:
+            return SwinjectStoryboard.defaultContainer.resolve(ListPostViewController.self) ?? UIViewController()
+        }
+    }
 }
