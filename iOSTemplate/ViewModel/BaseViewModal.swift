@@ -32,11 +32,9 @@ class BaseViewModel: BaseViewModelInterface {
             return Observable.error(AppError.nilDependency)
         }
         let dispathGroup = DispatchGroup()
-        dispathGroup.enter()
 
-        dispathGroup.wait()
         let apiObserver = networkService.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
-        return apiObserver.catch { error in
+        let catchApiObsever = apiObserver.catch { error in
             if (error as? AppError) ==  AppError.unAuthorized {
                 dispathGroup.enter()
                 let refreshToken = UserDefaults.standard.string(forKey: AppConstant.Authorization.REFRESH_TOKEN)
@@ -51,6 +49,10 @@ class BaseViewModel: BaseViewModelInterface {
                 throw error
             }
         }
+        
+        dispathGroup.wait()
+
+        return catchApiObsever
     }
     
     private func callRefreshToken(refreshToken: String?) -> Observable<LoginEntity> {
