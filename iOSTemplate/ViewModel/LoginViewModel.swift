@@ -26,6 +26,8 @@ class LoginViewModel: BaseViewModel, LoginViewModelInterface {
 
         return apiObsever.flatMap { val -> Observable<Bool> in
             if !val.refreshToken.isEmpty,  !val.authToken.isEmpty {
+                UserDefaults.standard.setValue(val.refreshToken, forKey: AppConstant.Authorization.REFRESH_TOKEN)
+                UserDefaults.standard.setValue(val.authToken, forKey: AppConstant.Authorization.AUTH_TOKEN)
                 return Observable.just(true)
             }
             return Observable.just(false)

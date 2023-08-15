@@ -22,7 +22,14 @@ extension SwinjectStoryboard {
     
     class ViewControllerAssembly : Assembly {
         func assemble(container: Swinject.Container) {
+            container.register(LoginViewController.self) { resolver in
+                let vc = LoginViewController()
+                vc.viewModel = resolver.resolve(LoginViewModelInterface.self)
+                return vc
+            }
+            
             container.storyboardInitCompleted(BaseViewController.self) { resolve, vc in
+                vc.baseViewModel = resolve.resolve(BaseViewModelInterface.self)
             }
 
             container.storyboardInitCompleted(MainViewController.self) { resolve, vc in

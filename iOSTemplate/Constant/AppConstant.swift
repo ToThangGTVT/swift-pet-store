@@ -15,7 +15,7 @@ struct AppConstant {
     }
     
     struct Api {
-        public static let BASE_URL = "https://setdanh.io.vn/api"
+        public static let BASE_URL = "http://localhost:8085/api"
         public static let LOGIN = "/login"
         public static let GET_POST = "/post"
         public static let REFRESH_TOKEN = "/refresh-token"
