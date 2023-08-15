@@ -9,15 +9,25 @@ target 'iOSTemplate' do
   pod "Alamofire"
   pod 'Swinject'
   pod 'SwinjectStoryboard'
-  # Pods for iOSTemplate
-
+  pod 'Parchment', '~> 3.2'  # Pods for iOSTemplate
+  
   target 'iOSTemplateTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
   target 'iOSTemplateUITests' do
     # Pods for testing
+  end
+  
+  post_install do |installer|
+    installer.generated_projects.each do |project|
+      project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+        end
+      end
+    end
   end
 
 end

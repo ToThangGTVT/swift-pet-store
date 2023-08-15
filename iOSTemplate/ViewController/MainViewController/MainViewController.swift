@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SwinjectStoryboard
+import Parchment
 
 class MainViewController: BaseViewController {
     var viewModel: MainViewModelInterface?
@@ -20,6 +21,10 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "PetTableCell", bundle: nil), forCellReuseIdentifier: "Cell")
         bindView()
+        
+//        let pagingViewController = PagingViewController()
+//        pagingViewController.dataSource = self
+//        pagingViewController.select(index: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,3 +57,16 @@ class MainViewController: BaseViewController {
     }
 }
 
+//extension MainViewController: PagingViewControllerDataSource {
+//    func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
+//        return 10
+//    }
+//
+//    func pagingViewController(_ pagingViewController: PagingViewController, viewControllerAt index: Int) -> UIViewController {
+//        return ChildViewController(index: index)
+//    }
+//
+//    func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
+//        return PagingIndexItem(index: index, title: "View \(index)")
+//    }
+//}
