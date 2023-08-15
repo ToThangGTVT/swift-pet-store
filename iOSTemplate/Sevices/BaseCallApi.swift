@@ -35,7 +35,6 @@ class BaseCallApi: BaseCallApiInterface {
         let urlApi = AppConstant.Api.BASE_URL + urlPostfix
         os_log("==================================", log: log, type: .debug)
         os_log("API: %@.", log: log, type: .debug, urlApi)
-        os_log("API: %@.", log: log, type: .debug, parameters.debugDescription)
 
         guard let urlApi = URL(string: urlApi) else {
             return Observable.error(URLError(URLError.Code.badURL))

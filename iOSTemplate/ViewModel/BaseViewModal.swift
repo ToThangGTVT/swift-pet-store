@@ -32,7 +32,7 @@ class BaseViewModel: BaseViewModelInterface {
         }
         let apiObserver = networkService.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
         
-        return apiObserver.retry { [weak self] error in
+        return apiObserver.retry { [weak self] error -> Observable<Error> in
             return error.flatMapLatest { error -> Observable<Error> in
                 if error is AppError, (error as? AppError) != AppError.unAuthorized {
                     return Observable.error(error)
