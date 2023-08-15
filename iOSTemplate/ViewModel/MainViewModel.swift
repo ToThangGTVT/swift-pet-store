@@ -29,6 +29,7 @@ class MainViewModel: BaseViewModel, MainViewModelInterface {
     func getData() {
                 
         let observerApi = callApi(urlPostfix: AppConstant.Api.GET_POST, method: .get, parameters: nil, type: [PostEntity].self)
+            .share()
             .asObservable()
             .materialize()
         

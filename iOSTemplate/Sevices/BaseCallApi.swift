@@ -33,7 +33,6 @@ class BaseCallApi: BaseCallApiInterface {
             ]
         }
         let urlApi = AppConstant.Api.BASE_URL + urlPostfix
-        os_log("==================================", log: log, type: .debug)
         os_log("API: %@.", log: log, type: .debug, urlApi)
 
         guard let urlApi = URL(string: urlApi) else {
@@ -41,6 +40,7 @@ class BaseCallApi: BaseCallApiInterface {
         }
                 
         return Observable.create { observer in
+            print("response.response?.statusCode")
             AF.request(urlApi, method: method, parameters: parameters, encoding: encoding ?? URLEncoding.httpBody, headers: self.headers).responseDecodable(of: T.self) { response in
                 switch response.result {
                 case .success(_):
@@ -56,7 +56,6 @@ class BaseCallApi: BaseCallApiInterface {
                     }
                     observer.onError(error)
                 }
-                observer.onCompleted()
             }
             return Disposables.create()
         }

@@ -32,24 +32,26 @@ class BaseViewModel: BaseViewModelInterface {
         }
         let apiObserver = networkService.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
         
-        return apiObserver.retry { [weak self] error -> Observable<Error> in
-            return error.flatMapLatest { error -> Observable<Error> in
-                if error is AppError, (error as? AppError) != AppError.unAuthorized {
-                    return Observable.error(error)
+        return apiObserver.catch { error in
+            if (error as? AppError) ==  AppError.unAuthorized {
+                let refreshToken = UserDefaults.standard.string(forKey: AppConstant.Authorization.REFRESH_TOKEN)
+                return self.callRefreshToken(refreshToken: refreshToken).flatMap { token in
+                    UserDefaults.standard.set(token.authToken, forKey: AppConstant.Authorization.AUTH_TOKEN)
+                    return self.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
+                }.catch { error in
+                    throw error
                 }
-                guard let refreshToken = UserDefaults.standard.string(forKey: AppConstant.Authorization.REFRESH_TOKEN) else {
-                    return Observable.error(AppError.unAuthorized)
-                }
-
-                return (self?.callRefreshToken(refreshToken: refreshToken)
-                    .flatMapLatest { respone -> Observable<Error> in
-                        return Observable.error(error)
-                    })!
+            } else {
+                throw error
             }
         }
     }
     
-    private func callRefreshToken(refreshToken: String) -> Observable<LoginEntity> {
+    private func callRefreshToken(refreshToken: String?) -> Observable<LoginEntity> {
+        guard let refreshToken = refreshToken else {
+            return Observable.error(AppError.unAuthorized)
+        }
+        
         let param: Parameters = [
             "refreshToken": refreshToken
         ]
