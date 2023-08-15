@@ -31,13 +31,18 @@ class BaseViewModel: BaseViewModelInterface {
         guard let networkService = networkService else {
             return Observable.error(AppError.nilDependency)
         }
+        let dispathGroup = DispatchGroup()
+        dispathGroup.enter()
+
+        dispathGroup.wait()
         let apiObserver = networkService.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
-        
         return apiObserver.catch { error in
             if (error as? AppError) ==  AppError.unAuthorized {
+                dispathGroup.enter()
                 let refreshToken = UserDefaults.standard.string(forKey: AppConstant.Authorization.REFRESH_TOKEN)
                 return self.callRefreshToken(refreshToken: refreshToken).flatMap { token in
                     UserDefaults.standard.set(token.authToken, forKey: AppConstant.Authorization.AUTH_TOKEN)
+                    dispathGroup.leave()
                     return self.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
                 }.catch { error in
                     throw error
