@@ -30,6 +30,10 @@
 		378ADA122A8A1D95003D4E8C /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378ADA112A8A1D95003D4E8C /* AppConstant.swift */; };
 		378ADA142A8A212D003D4E8C /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378ADA132A8A212D003D4E8C /* PostEntity.swift */; };
 		378ADA162A8A2481003D4E8C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378ADA152A8A2481003D4E8C /* AppError.swift */; };
+		37EB35942A8B7A31000753E8 /* ListPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EB35922A8B7A31000753E8 /* ListPostViewController.swift */; };
+		37EB35952A8B7A31000753E8 /* ListPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EB35932A8B7A31000753E8 /* ListPostViewController.xib */; };
+		37EB35982A8B8503000753E8 /* PagingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EB35972A8B8503000753E8 /* PagingItemView.swift */; };
+		37EB359C2A8B855E000753E8 /* PagingItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EB359B2A8B855E000753E8 /* PagingItemView.xib */; };
 		6B14BACEDBAA9FDA1AE1102A /* Pods_iOSTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87165C2602D40E31B3875E2F /* Pods_iOSTemplate.framework */; };
 		AA1EDD39C6D8EC4AE808B49F /* Pods_iOSTemplate_iOSTemplateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E9BBCAA42E9698E56EF415 /* Pods_iOSTemplate_iOSTemplateUITests.framework */; };
 		B0D87BD62A8A796500292F07 /* BaseViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D87BD52A8A796500292F07 /* BaseViewModal.swift */; };
@@ -84,6 +88,10 @@
 		378ADA112A8A1D95003D4E8C /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		378ADA132A8A212D003D4E8C /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
 		378ADA152A8A2481003D4E8C /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		37EB35922A8B7A31000753E8 /* ListPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostViewController.swift; sourceTree = "<group>"; };
+		37EB35932A8B7A31000753E8 /* ListPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListPostViewController.xib; sourceTree = "<group>"; };
+		37EB35972A8B8503000753E8 /* PagingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingItemView.swift; sourceTree = "<group>"; };
+		37EB359B2A8B855E000753E8 /* PagingItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagingItemView.xib; sourceTree = "<group>"; };
 		3BB9BA8AA6FD2CF287D885D6 /* Pods-iOSTemplateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplateTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSTemplateTests/Pods-iOSTemplateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B5B7AEF7C35EAC8E4D0AAD4 /* Pods-iOSTemplate-iOSTemplateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplate-iOSTemplateUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplate-iOSTemplateUITests/Pods-iOSTemplate-iOSTemplateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5BBBBFA2E962A6A2052A5799 /* Pods-iOSTemplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSTemplateTests.release.xcconfig"; path = "Target Support Files/Pods-iOSTemplateTests/Pods-iOSTemplateTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 		373D96452A864054009C1F53 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				37EB358F2A8B79EE000753E8 /* ListPostViewController */,
 				B0D87BD72A8A954600292F07 /* Base */,
 				B0D87BD42A8A703800292F07 /* MainViewController */,
 				373D96502A89C248009C1F53 /* LoginViewController */,
@@ -277,6 +286,24 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		37EB358F2A8B79EE000753E8 /* ListPostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				37EB35922A8B7A31000753E8 /* ListPostViewController.swift */,
+				37EB35932A8B7A31000753E8 /* ListPostViewController.xib */,
+			);
+			path = ListPostViewController;
+			sourceTree = "<group>";
+		};
+		37EB35962A8B7CEE000753E8 /* PagingView */ = {
+			isa = PBXGroup;
+			children = (
+				37EB35972A8B8503000753E8 /* PagingItemView.swift */,
+				37EB359B2A8B855E000753E8 /* PagingItemView.xib */,
+			);
+			path = PagingView;
+			sourceTree = "<group>";
+		};
 		6858D40D0FFC4645377ECF43 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +320,7 @@
 		B0D87BD42A8A703800292F07 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				37EB35962A8B7CEE000753E8 /* PagingView */,
 				3775361722234238005EE5FE /* Main.storyboard */,
 				373776132A861830000F4551 /* MainViewController.swift */,
 			);
@@ -419,8 +447,10 @@
 				3775361E22234238005EE5FE /* LaunchScreen.storyboard in Resources */,
 				3775361B22234238005EE5FE /* Assets.xcassets in Resources */,
 				373D96442A8633B4009C1F53 /* PetTableCell.xib in Resources */,
+				37EB35952A8B7A31000753E8 /* ListPostViewController.xib in Resources */,
 				373D964E2A8644F4009C1F53 /* AddPetViewController.xib in Resources */,
 				373D96542A89C263009C1F53 /* LoginViewController.xib in Resources */,
+				37EB359C2A8B855E000753E8 /* PagingItemView.xib in Resources */,
 				3775361922234238005EE5FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +584,8 @@
 				373776122A85EA6B000F4551 /* DependencyContainer.swift in Sources */,
 				378ADA122A8A1D95003D4E8C /* AppConstant.swift in Sources */,
 				373D96482A864081009C1F53 /* DetailPetViewController.swift in Sources */,
+				37EB35982A8B8503000753E8 /* PagingItemView.swift in Sources */,
+				37EB35942A8B7A31000753E8 /* ListPostViewController.swift in Sources */,
 				3775361422234238005EE5FE /* AppDelegate.swift in Sources */,
 				B0D87BD62A8A796500292F07 /* BaseViewModal.swift in Sources */,
 				378ADA162A8A2481003D4E8C /* AppError.swift in Sources */,

@@ -27,14 +27,16 @@ extension SwinjectStoryboard {
                 vc.viewModel = resolver.resolve(LoginViewModelInterface.self)
                 return vc
             }
+            container.register(ListPostViewController.self) { resolver in
+                let vc = ListPostViewController()
+                vc.viewModel = resolver.resolve(MainViewModelInterface.self)
+                return vc
+            }
             
             container.storyboardInitCompleted(BaseViewController.self) { resolve, vc in
                 vc.baseViewModel = resolve.resolve(BaseViewModelInterface.self)
             }
 
-            container.storyboardInitCompleted(MainViewController.self) { resolve, vc in
-                vc.viewModel = resolve.resolve(MainViewModelInterface.self)
-            }
             container.storyboardInitCompleted(LoginViewController.self) { resolve, vc in
                 vc.viewModel = resolve.resolve(LoginViewModelInterface.self)
             }
