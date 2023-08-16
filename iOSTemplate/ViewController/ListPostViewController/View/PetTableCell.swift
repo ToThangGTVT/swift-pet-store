@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PetTableCell: UITableViewCell {
     
+    @IBOutlet weak var imagePostView: UIImageView!
     @IBOutlet weak var title: UILabel!
         
     override func awakeFromNib() {
@@ -22,4 +24,10 @@ class PetTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func bindView(post: ListPost) {
+        title.text = post.title
+        if let imageUrl = post.urlImageBanner {
+            imagePostView.kf.setImage(with: URL(string: imageUrl))
+        }
+    }
 }

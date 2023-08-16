@@ -10,6 +10,7 @@ target 'iOSTemplate' do
   pod 'Swinject'
   pod 'SwinjectStoryboard'
   pod 'Parchment', '~> 3.2'  # Pods for iOSTemplate
+  pod 'Kingfisher'
   
   target 'iOSTemplateTests' do
     inherit! :search_paths

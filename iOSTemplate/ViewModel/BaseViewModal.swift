@@ -10,8 +10,14 @@ import Alamofire
 import RxSwift
 
 protocol BaseViewModelInterface: class {
-    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, type: T.Type) -> Observable<T>
+    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding?, type: T.Type) -> Observable<T>
     var loadingError401Occurred: Observable<Error> { get }
+}
+
+extension BaseViewModelInterface {
+    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, type: T.Type) -> Observable<T> {
+        return callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, encoding: nil, type: type)
+    }
 }
 
 class BaseViewModel: BaseViewModelInterface {
@@ -26,14 +32,14 @@ class BaseViewModel: BaseViewModelInterface {
         self.loadingError401Occurred = _loadingError401Occurred
     }
     
-    final func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, type: T.Type) -> Observable<T> {
+    final func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding?, type: T.Type) -> Observable<T> {
         
         guard let networkService = networkService else {
             return Observable.error(AppError.nilDependency)
         }
         let dispathGroup = DispatchGroup()
 
-        let apiObserver = networkService.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
+        let apiObserver = networkService.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, encoding: encoding, type: type)
         let catchApiObsever = apiObserver.catch { error in
             if (error as? AppError) ==  AppError.unAuthorized {
                 dispathGroup.enter()

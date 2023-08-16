@@ -200,7 +200,6 @@
 				373D96502A89C248009C1F53 /* LoginViewController */,
 				373D964F2A8644FC009C1F53 /* AddPetViewcontroller */,
 				373D964A2A8644AF009C1F53 /* DetailPetController */,
-				373D963C2A863373009C1F53 /* View */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -302,6 +301,7 @@
 		37EB358F2A8B79EE000753E8 /* ListPostViewController */ = {
 			isa = PBXGroup;
 			children = (
+				373D963C2A863373009C1F53 /* View */,
 				37EB35922A8B7A31000753E8 /* ListPostViewController.swift */,
 				37EB35932A8B7A31000753E8 /* ListPostViewController.xib */,
 			);

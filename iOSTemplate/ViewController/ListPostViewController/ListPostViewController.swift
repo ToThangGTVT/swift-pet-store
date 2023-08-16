@@ -11,6 +11,7 @@ import SwinjectStoryboard
 class ListPostViewController: BaseViewController {
     
     var viewModel: ListPostViewModelInterface?
+    var categoryId: Int?
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,12 +23,16 @@ class ListPostViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.getData()
+        guard let categoryId = categoryId else { return }
+        viewModel?.getData(categoryId: categoryId)
     }
 
     func bindView() {
+        tableView.delegate = nil
+        tableView.dataSource = nil
+        
         viewModel?.posts.bind(to: tableView.rx.items(cellIdentifier: "Cell", cellType: PetTableCell.self)) { index, element, cell in
-            cell.title.text = element.category?.name
+            cell.bindView(post: element)
         }.disposed(by: disposeBag)
         
         viewModel?.loadingErrorOccurred.subscribe(onNext: ({ [weak self] error in

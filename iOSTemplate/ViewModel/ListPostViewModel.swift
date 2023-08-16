@@ -7,18 +7,19 @@
 
 import Foundation
 import RxSwift
+import Alamofire
 
 protocol ListPostViewModelInterface: class {
-    func getData()
-    var posts: Observable<[PostEntity]> { get }
+    func getData(categoryId: Int)
+    var posts: Observable<[ListPost]> { get }
     var loadingErrorOccurred: Observable<Error> { get }
 }
 
 class ListPostViewModel: BaseViewModel, ListPostViewModelInterface {
-    private let _posts = PublishSubject<[PostEntity]>()
+    private let _posts = PublishSubject<[ListPost]>()
     private let _loadingErrorOccurred = PublishSubject<Error>()
     
-    let posts: Observable<[PostEntity]>
+    let posts: Observable<[ListPost]>
     let loadingErrorOccurred: Observable<Error>
     
     override init() {
@@ -26,9 +27,11 @@ class ListPostViewModel: BaseViewModel, ListPostViewModelInterface {
         self.loadingErrorOccurred = _loadingErrorOccurred.asObserver()
     }
         
-    func getData() {
-                
-        let observerApi = callApi(urlPostfix: AppConstant.Api.GET_POST, method: .get, parameters: nil, type: [PostEntity].self)
+    func getData(categoryId: Int) {
+        let parameter: Parameters = [
+            "categoryId": categoryId
+        ]
+        let observerApi = callApi(urlPostfix: AppConstant.Api.GET_POST_BY_CATEGORY_ID, method: .get, parameters: parameter, encoding: URLEncoding.queryString, type: [ListPost].self)
             .share()
             .asObservable()
             .materialize()
