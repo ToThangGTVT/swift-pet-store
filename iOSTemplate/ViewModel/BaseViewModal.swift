@@ -10,20 +10,23 @@ import Alamofire
 import RxSwift
 
 protocol BaseViewModelInterface: class {
-    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding?, type: T.Type) -> Observable<T>
+    func callApi<T: Codable>(requestData: RequestData, returnType: T.Type) -> Observable<T>
     var loadingError401Occurred: Observable<Error> { get }
 }
 
-extension BaseViewModelInterface {
-    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, type: T.Type) -> Observable<T> {
-        return callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, encoding: nil, type: type)
-    }
+struct RequestData {
+    var urlPostfix: String
+    var method: HTTPMethod
+    var parameters: Parameters?
+    var headers: HTTPHeaders?
+    var encoding: ParameterEncoding?
 }
 
 class BaseViewModel: BaseViewModelInterface {
     var networkService: BaseCallApiInterface?
     var disposeBag = DisposeBag()
     var isCallRefreshToken: Bool = false
+    let queue = DispatchQueue(label: "com.example.queue")
     
     private let _loadingError401Occurred = PublishSubject<Error>()
     let loadingError401Occurred: Observable<Error>
@@ -32,14 +35,14 @@ class BaseViewModel: BaseViewModelInterface {
         self.loadingError401Occurred = _loadingError401Occurred
     }
     
-    final func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding?, type: T.Type) -> Observable<T> {
+    final func callApi<T: Codable>(requestData: RequestData, returnType: T.Type) -> Observable<T> {
         
         guard let networkService = networkService else {
             return Observable.error(AppError.nilDependency)
         }
         let dispathGroup = DispatchGroup()
 
-        let apiObserver = networkService.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, encoding: encoding, type: type)
+        let apiObserver = networkService.callApi(requestData: requestData, returnType: returnType)
         let catchApiObsever = apiObserver.catch { error in
             if (error as? AppError) ==  AppError.unAuthorized {
                 dispathGroup.enter()
@@ -47,7 +50,7 @@ class BaseViewModel: BaseViewModelInterface {
                 return self.callRefreshToken(refreshToken: refreshToken).flatMap { token in
                     UserDefaults.standard.set(token.authToken, forKey: AppConstant.Authorization.AUTH_TOKEN)
                     dispathGroup.leave()
-                    return self.callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, type: type)
+                    return self.callApi(requestData: requestData, returnType: returnType)
                 }.catch { error in
                     throw error
                 }
@@ -74,7 +77,11 @@ class BaseViewModel: BaseViewModelInterface {
             return Observable.error(AppError.nilDependency)
         }
         
-        return networkService.callApi(urlPostfix: AppConstant.Api.REFRESH_TOKEN, method: .post, parameters: param, encoding: URLEncoding.queryString, type: LoginEntity.self)
+        var requestData = RequestData(urlPostfix: AppConstant.Api.REFRESH_TOKEN, method: .post)
+        requestData.parameters = param
+        requestData.encoding = URLEncoding.queryString
+        
+        return networkService.callApi(requestData: requestData, returnType: LoginEntity.self)
     }
     
 }

@@ -21,7 +21,10 @@ class LoginViewModel: BaseViewModel, LoginViewModelInterface {
             "password": password
         ]
         
-        let apiObsever = networkService?.callApi(urlPostfix: AppConstant.Api.LOGIN, method: .post, parameters: parameters , type: LoginEntity.self)
+        var requestData = RequestData(urlPostfix: AppConstant.Api.LOGIN, method: .get)
+        requestData.parameters = parameters
+        
+        let apiObsever = networkService?.callApi(requestData: requestData, returnType: LoginEntity.self)
         guard let apiObsever = apiObsever else { return Observable.error(AppError.customError)}
 
         return apiObsever.flatMap { val -> Observable<Bool> in

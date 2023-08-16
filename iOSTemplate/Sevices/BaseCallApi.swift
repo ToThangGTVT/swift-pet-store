@@ -11,19 +11,13 @@ import RxSwift
 import os.log
 
 protocol BaseCallApiInterface: class {
-    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding?, type: T.Type) -> Observable<T>
-}
-
-extension BaseCallApiInterface {
-    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, type: T.Type) -> Observable<T> {
-        return callApi(urlPostfix: urlPostfix, method: method, parameters: parameters, encoding: nil, type: type)
-    }
+    func callApi<T: Codable>(requestData: RequestData, returnType: T.Type) -> Observable<T>
 }
 
 class BaseCallApi: BaseCallApiInterface {
     var headers: HTTPHeaders?
     
-    func callApi<T: Codable>(urlPostfix: String, method: HTTPMethod, parameters: Parameters?, encoding: ParameterEncoding? = nil, type: T.Type) -> Observable<T> {
+    func callApi<T: Codable>(requestData: RequestData, returnType: T.Type) -> Observable<T> {
         let log = OSLog(subsystem: "com.example.iOSTemplate", category: "\(#function)")
         
         if let _ = UserDefaults.standard.string(forKey: AppConstant.Authorization.AUTH_TOKEN) {
@@ -32,7 +26,12 @@ class BaseCallApi: BaseCallApiInterface {
                 "Content-Type": "application/json"
             ]
         }
-        let urlApi = AppConstant.Api.BASE_URL + urlPostfix
+        let urlApi = AppConstant.Api.BASE_URL + requestData.urlPostfix
+        let method = requestData.method
+        let encoding = requestData.encoding
+        let parameters = requestData.parameters
+        let headers = requestData.headers
+        
         os_log("API: %@.", log: log, type: .debug, urlApi)
 
         guard let urlApi = URL(string: urlApi) else {
@@ -41,7 +40,7 @@ class BaseCallApi: BaseCallApiInterface {
                 
         return Observable.create { observer in
             print("response.response?.statusCode")
-            AF.request(urlApi, method: method, parameters: parameters, encoding: encoding ?? URLEncoding.httpBody, headers: self.headers).responseDecodable(of: T.self) { response in
+            AF.request(urlApi, method: method, parameters: parameters, encoding: encoding ?? URLEncoding.httpBody, headers: self.headers).responseDecodable(of: returnType) { response in
                 switch response.result {
                 case .success(_):
                     if let value = response.value {

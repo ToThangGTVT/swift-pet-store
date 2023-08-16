@@ -31,7 +31,14 @@ class ListPostViewModel: BaseViewModel, ListPostViewModelInterface {
         let parameter: Parameters = [
             "categoryId": categoryId
         ]
-        let observerApi = callApi(urlPostfix: AppConstant.Api.GET_POST_BY_CATEGORY_ID, method: .get, parameters: parameter, encoding: URLEncoding.queryString, type: [ListPost].self)
+        
+        var requestData = RequestData(urlPostfix: AppConstant.Api.GET_POST_BY_CATEGORY_ID, method: .get)
+        requestData.urlPostfix = AppConstant.Api.GET_POST_BY_CATEGORY_ID
+        requestData.method = .get
+        requestData.parameters = parameter
+        requestData.encoding = URLEncoding.queryString
+        
+        let observerApi = callApi(requestData: requestData, returnType: [ListPost].self)
             .share()
             .asObservable()
             .materialize()

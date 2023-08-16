@@ -28,7 +28,9 @@ class MainViewModel: BaseViewModel, MainViewModelInterface {
         
     func getDataCategory() {
                 
-        let observerApi = callApi(urlPostfix: AppConstant.Api.GET_CATEGORY, method: .get, parameters: nil, type: [CategoryEntity].self)
+        let requestData = RequestData(urlPostfix: AppConstant.Api.GET_CATEGORY, method: .get)
+        
+        let observerApi = callApi(requestData: requestData, returnType: [CategoryEntity].self)
             .share()
             .asObservable()
             .materialize()
