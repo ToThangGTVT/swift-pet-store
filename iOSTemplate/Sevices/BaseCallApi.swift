@@ -30,9 +30,10 @@ class BaseCallApi: BaseCallApiInterface {
         let method = requestData.method
         let encoding = requestData.encoding
         let parameters = requestData.parameters
-        let headers = requestData.headers
         
         os_log("API: %@.", log: log, type: .debug, urlApi)
+        print(headers)
+        
 
         guard let urlApi = URL(string: urlApi) else {
             return Observable.error(URLError(URLError.Code.badURL))
@@ -41,6 +42,7 @@ class BaseCallApi: BaseCallApiInterface {
         return Observable.create { observer in
             print("response.response?.statusCode")
             AF.request(urlApi, method: method, parameters: parameters, encoding: encoding ?? URLEncoding.httpBody, headers: self.headers).responseDecodable(of: returnType) { response in
+                print(response.response?.statusCode)
                 switch response.result {
                 case .success(_):
                     if let value = response.value {
