@@ -34,7 +34,6 @@ extension SwinjectStoryboard {
                 vc.viewModel = resolver.resolve(ListPostViewModelInterface.self)
                 return vc
             }
-            
             container.storyboardInitCompleted(BaseViewController.self) { resolve, vc in
                 vc.baseViewModel = resolve.resolve(BaseViewModelInterface.self)
             }

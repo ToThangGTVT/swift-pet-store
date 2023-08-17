@@ -72,7 +72,7 @@ extension MainViewController: PagingViewControllerDataSource {
     }
 }
 
-enum ListViewPaging: CaseIterable {
+enum ListViewPaging: Int, CaseIterable {
     case home
     case category
     

@@ -10,6 +10,7 @@ import Kingfisher
 
 class PetTableCell: UITableViewCell {
     
+    @IBOutlet weak var shortContent: UILabel!
     @IBOutlet weak var imagePostView: UIImageView!
     @IBOutlet weak var title: UILabel!
         
@@ -26,6 +27,7 @@ class PetTableCell: UITableViewCell {
     
     func bindView(post: ListPost) {
         title.text = post.title
+        shortContent.text = post.shortContent
         if let imageUrl = post.urlImageBanner {
             imagePostView.kf.setImage(with: URL(string: imageUrl))
         }

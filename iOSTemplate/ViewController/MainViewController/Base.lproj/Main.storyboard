@@ -11,19 +11,19 @@
         <!--PetViewController-->
         <scene sceneID="zgg-br-7lU">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M5T-rl-Lgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="qli-FJ-LK4" userLabel="PetViewController" customClass="MainViewController" customModule="iOSTemplate" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Your Meals" id="ZBB-eN-FYG">
+                    <navigationItem key="navigationItem" title="Blog Manager" id="ZBB-eN-FYG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bop-9v-mjb"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M5T-rl-Lgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="65" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Ua-0w-F9J">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="09D-Vj-kF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z2J-ha-eLV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Iw9-YH-GM6">
@@ -45,6 +45,7 @@
                         <segue destination="qli-FJ-LK4" kind="relationship" relationship="rootViewController" id="vbP-of-gFw"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="09D-Vj-kF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-914.39999999999998" y="133.5832083958021"/>
         </scene>

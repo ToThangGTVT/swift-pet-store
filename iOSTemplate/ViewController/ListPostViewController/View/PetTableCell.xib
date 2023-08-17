@@ -1,50 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="259" id="KGk-i7-Jjw" customClass="PetTableCell" customModule="iOSTemplate" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="353" height="259"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="328" id="KGk-i7-Jjw" customClass="PetTableCell" customModule="iOSTemplate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="406" height="328"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="353" height="259"/>
+                <rect key="frame" x="0.0" y="0.0" width="406" height="328"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeQ-Hn-S2o">
-                        <rect key="frame" x="20" y="11" width="42" height="41.333333333333336"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeQ-Hn-S2o">
+                        <rect key="frame" x="20" y="14" width="370" height="3.3333333333333321"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-Sb-7eO">
+                        <rect key="frame" x="20" y="17.333333333333336" width="370" height="20.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9QD-2e-UZl">
-                        <rect key="frame" x="0.0" y="60.333333333333329" width="353" height="198.66666666666669"/>
+                        <rect key="frame" x="0.0" y="45.333333333333329" width="406" height="222.66666666666669"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="9QD-2e-UZl" secondAttribute="height" multiplier="16:9" id="EnN-9N-hxK"/>
+                            <constraint firstAttribute="height" constant="222.66999999999999" id="LgS-NI-WDd"/>
                         </constraints>
                     </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4VP-cn-yqL">
+                        <rect key="frame" x="0.0" y="274" width="406" height="48"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nR-OK-MLl">
+                                <rect key="frame" x="0.0" y="0.0" width="198" height="48"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Edit">
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFA-QQ-XOT">
+                                <rect key="frame" x="208" y="0.0" width="198" height="48"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Delete">
+                                    <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="yYs-Pk-eWs"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9QD-2e-UZl" firstAttribute="top" secondItem="JeQ-Hn-S2o" secondAttribute="bottom" constant="8" symbolic="YES" id="Bpj-YJ-un7"/>
-                    <constraint firstAttribute="bottom" secondItem="9QD-2e-UZl" secondAttribute="bottom" id="LbD-lQ-wLZ"/>
+                    <constraint firstAttribute="trailing" secondItem="JeQ-Hn-S2o" secondAttribute="trailing" constant="16" id="1SN-5W-5t6"/>
+                    <constraint firstAttribute="trailing" secondItem="GQE-Sb-7eO" secondAttribute="trailing" constant="16" id="2SD-bA-LfS"/>
+                    <constraint firstItem="JeQ-Hn-S2o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="7YR-T2-Lg1"/>
+                    <constraint firstItem="GQE-Sb-7eO" firstAttribute="top" secondItem="JeQ-Hn-S2o" secondAttribute="bottom" id="CJP-EM-2io"/>
+                    <constraint firstItem="GQE-Sb-7eO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="E8l-7c-GbY"/>
+                    <constraint firstItem="4VP-cn-yqL" firstAttribute="top" secondItem="9QD-2e-UZl" secondAttribute="bottom" constant="6" id="N2H-Tn-efP"/>
                     <constraint firstItem="9QD-2e-UZl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Pdj-K3-QHU"/>
+                    <constraint firstAttribute="bottom" secondItem="4VP-cn-yqL" secondAttribute="bottom" constant="6" id="Ymp-xP-cdQ"/>
                     <constraint firstItem="JeQ-Hn-S2o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Zpn-av-sax"/>
-                    <constraint firstItem="JeQ-Hn-S2o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="dIq-S2-bO6"/>
+                    <constraint firstItem="9QD-2e-UZl" firstAttribute="top" secondItem="GQE-Sb-7eO" secondAttribute="bottom" constant="7.6699999999999999" id="fZF-DZ-So0"/>
                     <constraint firstAttribute="trailing" secondItem="9QD-2e-UZl" secondAttribute="trailing" id="fwV-Rd-5kF"/>
+                    <constraint firstAttribute="trailing" secondItem="4VP-cn-yqL" secondAttribute="trailing" id="lOQ-et-2m8"/>
+                    <constraint firstItem="4VP-cn-yqL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nGY-S5-8my"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imagePostView" destination="9QD-2e-UZl" id="0Qu-9f-Qwz"/>
+                <outlet property="shortContent" destination="GQE-Sb-7eO" id="Gux-7j-XBr"/>
                 <outlet property="title" destination="JeQ-Hn-S2o" id="kk9-69-Q7G"/>
             </connections>
-            <point key="canvasLocation" x="106.10687022900763" y="63.732394366197184"/>
+            <point key="canvasLocation" x="146.56488549618319" y="87.323943661971839"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
