@@ -53,25 +53,21 @@ extension SwinjectStoryboard {
         func assemble(container: Swinject.Container) {
             container.register(BaseViewModelInterface.self) { resolver in
                 let viewModel = BaseViewModel()
-                viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
                 return viewModel
             }.inObjectScope(.container)
 
             container.register(MainViewModelInterface.self) { resolver in
                 let viewModel = MainViewModel()
-                viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
                 return viewModel
             }.inObjectScope(.container)
             
             container.register(ListPostViewModelInterface.self) { resolver in
                 let viewModel = ListPostViewModel()
-                viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
                 return viewModel
             }.inObjectScope(.container)
             
             container.register(LoginViewModelInterface.self) { resolver in
                 let viewModel = LoginViewModel()
-                viewModel.networkService = resolver.resolve(BaseCallApiInterface.self)
                 return viewModel
             }.inObjectScope(.container)
         }

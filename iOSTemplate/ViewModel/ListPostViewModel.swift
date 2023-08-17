@@ -38,12 +38,11 @@ class ListPostViewModel: BaseViewModel, ListPostViewModelInterface {
         requestData.parameters = parameter
         requestData.encoding = URLEncoding.queryString
         
-        let observerApi = callApi(requestData: requestData, returnType: [ListPost].self)
-            .share()
-            .asObservable()
-            .materialize()
-        
-        observerApi.compactMap { $0.element }.bind(to: _posts).disposed(by: disposeBag)
-        observerApi.compactMap { $0.error }.bind(to: _loadingErrorOccurred).disposed(by: disposeBag)
+        baseCallApi(requestData: requestData, returnType: [ListPost].self) { observer in
+            let observerApi = observer.share().asObservable().materialize()
+            
+            observerApi.compactMap { $0.element }.bind(to: self._posts).disposed(by: self.disposeBag)
+            observerApi.compactMap { $0.error }.bind(to: self._loadingErrorOccurred).disposed(by: self.disposeBag)
+        }
     }
 }

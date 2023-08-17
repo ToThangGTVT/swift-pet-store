@@ -30,12 +30,11 @@ class MainViewModel: BaseViewModel, MainViewModelInterface {
                 
         let requestData = RequestData(urlPostfix: AppConstant.Api.GET_CATEGORY, method: .get)
         
-        let observerApi = callApi(requestData: requestData, returnType: [CategoryEntity].self)
-            .share()
-            .asObservable()
-            .materialize()
-        
-        observerApi.compactMap { $0.element }.bind(to: _posts).disposed(by: disposeBag)
-        observerApi.compactMap { $0.error }.bind(to: _loadingErrorOccurred).disposed(by: disposeBag)
+        baseCallApi(requestData: requestData, returnType: [CategoryEntity].self) { [self] observer in
+            let observerApi = observer.share().asObservable().materialize()
+            
+            observerApi.compactMap { $0.element }.bind(to: _posts).disposed(by: disposeBag)
+            observerApi.compactMap { $0.error }.bind(to: _loadingErrorOccurred).disposed(by: disposeBag)
+        }
     }
 }

@@ -41,6 +41,10 @@ class MainViewController: BaseViewController {
             self?.hideIndicator()
             self?.isReloadData = true
         }.disposed(by: disposeBag)
+        
+        viewModel?.loadingErrorOccurred.subscribe { [weak self] error in
+            self?.showAlert(message: error.debugDescription)
+        }.disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
