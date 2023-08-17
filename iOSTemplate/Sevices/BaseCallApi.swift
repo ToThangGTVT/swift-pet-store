@@ -69,6 +69,7 @@ class BaseCallApi: BaseCallApiInterface {
                             for task in dispatchItem {
                                 task.perform()
                             }
+                            isRefreshingToken = false
                         }
                     }
                 }
