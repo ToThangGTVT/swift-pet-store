@@ -46,15 +46,16 @@ class BaseCallApi: BaseCallApiInterface {
             case .success(_):
                 if let value = response.value {
                     print(value)
-                    completion(Observable.just(value))
+                    completion(Observable.create { observer in
+                        observer.onNext(value)
+                        return Disposables.create()
+                    })
                 } else {
                     completion(Observable.error(AppError.haveNoDataError))
                 }
             case .failure(let error):
                 os_log("ERROR: %@.", log: log, type: .debug, error.localizedDescription)
                 if response.response?.statusCode == 401 {
-//                    completion(Observable.error(AppError.unAuthorized))
-                    
                     let dwi = DispatchWorkItem {
                         completion(reCallApi(requestData: requestData, returnType: returnType))
                     }
@@ -70,10 +71,10 @@ class BaseCallApi: BaseCallApiInterface {
                                 task.perform()
                             }
                             isRefreshingToken = false
+                            dispatchItem = []
                         }
                     }
                 }
-//                completion(Observable.error(error))
             }
         }
     }
@@ -93,7 +94,6 @@ class BaseCallApi: BaseCallApiInterface {
         os_log("API: %@.", log: log, type: .debug, urlApi)
 
         guard let urlApi = URL(string: urlApi) else {
-            //            completion(Observable.error(URLError(URLError.Code.badURL)))
             return Observable.error(URLError(URLError.Code.badURL))
         }
         return Observable.create { observer in
